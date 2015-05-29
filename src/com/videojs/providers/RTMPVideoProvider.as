@@ -328,6 +328,10 @@ package com.videojs.providers{
             }
         }
         
+        public function flushBuffer():void{
+        
+        }
+        
         public function stop():void{
             if(_isPlaying){
                 _ns.close();

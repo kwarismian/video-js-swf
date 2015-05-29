@@ -337,6 +337,9 @@ package com.videojs.providers{
                 _model.broadcastEventExternally(ExternalEventName.ON_SEEK_COMPLETE);
             }
         }
+        
+        public function flushBuffer():void{
+        }
 
         public function stop():void{
             if(_audioPlaybackStarted){

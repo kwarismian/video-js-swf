@@ -477,6 +477,14 @@ package com.videojs.providers{
             _hls.stream.seek(pPercent*_duration);
           }
         }
+        
+        /**
+        * Called when the media asset needs to flush its buffer and re-evaluate stream sizes.
+        */
+        
+        public function flushBuffer():void{
+            _hls.flushBuffer();
+        }
 
         /**
          * Called when the media asset needs to stop.
@@ -529,7 +537,7 @@ package com.videojs.providers{
         public function discontinuity():void{
             throw "HLSProvider does not support discontinuities";
         }
-
+        
         /**
          * Should return the number of stream levels that this content has.
          */
@@ -543,7 +551,7 @@ package com.videojs.providers{
          */
         public function get level():int
         {
-            return _hls.level;
+            return _hls.currentLevel;
         }
 
         /**
@@ -553,7 +561,7 @@ package com.videojs.providers{
          */
         public function set level(pLevel:int):void
         {
-            _hls.level = pLevel;
+            _hls.currentLevel = pLevel;
 
             // For reflecting new level from the next segment. Otherwise, new setting is applied only after currently buffered data is gone.
             if (!isNaN(_position) && pLevel != -1) {
@@ -566,7 +574,7 @@ package com.videojs.providers{
           */
         public function get autoLevelEnabled():Boolean
         {
-            return _hls.autolevel;
+            return _hls.autoLevel;
         }
     }
 }

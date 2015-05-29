@@ -542,6 +542,12 @@ package com.videojs{
                 _provider.seekByPercent(pValue);
             }
         }
+        
+        public function flushBuffer():void{
+            if(_provider){
+                _provider.flushBuffer();
+            }
+        }
 
         /**
          * Stops video playback, clears the video element, and stops any loading proceeses.

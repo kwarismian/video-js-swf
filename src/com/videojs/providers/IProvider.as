@@ -171,6 +171,8 @@ package com.videojs.providers{
          */     
         function seekByPercent(pPercent:Number):void;
         
+        function flushBuffer():void;
+        
         /**
          * Called when the media asset needs to stop.
          */
